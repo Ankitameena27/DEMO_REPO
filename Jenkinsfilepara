@@ -1,5 +1,9 @@
 pipeline {
     agent any
+
+environment {
+        CREDENTIALS = credentials('demo_user_password')
+}
     
     parameters {
         string(name: 'NAME', defaultValue: 'JohnDoe', description: 'Enter your name')
