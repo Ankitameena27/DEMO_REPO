@@ -13,7 +13,7 @@ pipeline {
                     sh 'chmod +x print_user_name.sh'
                     
                     // Execute the script
-                    sh './print_user_name.sh'
+                    sh './print_user_name.sh pradeep'
                 }
             }
         }
