@@ -9,9 +9,12 @@ pipeline {
         stage('demo') {
             steps {
                 script {
-                sh './print_user_name.sh'
+                    // Add the shebang line for the shell script
+                    sh '#!/bin/bash\n./print_user_name.sh'
+                }
             }
         }
     }
 }
+
  
