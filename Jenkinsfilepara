@@ -17,7 +17,7 @@ environment {
                     sh 'chmod +x print_user_name.sh'
                     
                     // Execute the script
-                    sh './print_user_name.sh ${params.NAME}'
+                    sh "./print_user_name.sh ${params.NAME}"
                 }
             }
         }
