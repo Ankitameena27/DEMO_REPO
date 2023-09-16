@@ -1,1 +1,6 @@
-
+pipeline {
+    agent any
+    
+    parameters {
+        string(name: 'NAME', defaultValue: 'JohnDoe', description: 'Enter your name')
+    }
