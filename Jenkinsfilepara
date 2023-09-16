@@ -4,3 +4,13 @@ pipeline {
     parameters {
         string(name: 'NAME', defaultValue: 'JohnDoe', description: 'Enter your name')
     }
+
+    stages {
+        stage('Example Stage') {
+            steps {
+                echo "Hello, ${params.NAME}!"
+                // Add more steps here as needed
+            }
+        }
+    }
+}
