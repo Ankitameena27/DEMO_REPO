@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('demo') {
             steps {
-                echo "${CREDENTIALS_USR}"
-                echo "${CREDENTIALS_PSW}"
+                script {
+                sh './print_user_name.sh'
             }
         }
     }
