@@ -1,1 +1,19 @@
+pipeline {
+    agent any
 
+environment {
+        CREDENTIALS = credentials('git_paswrd')
+}
+    
+    parameters {
+        string(name: 'FOLDER_NAME', defaultValue: 'NULL', description: 'Enter folder name you want to delete')
+    }
+    stages {
+        stage('git_checkout') {
+            steps {
+                git branch: '/main', credentialsId: 'git_paswrd', url: 'https://github.com/Ankitameena27/swati.git'
+                }
+            }
+        }
+    }
+}
