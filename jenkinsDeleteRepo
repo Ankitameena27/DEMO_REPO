@@ -9,6 +9,7 @@ pipeline {
         string(name: 'FOLDER_NAME', defaultValue: 'NULL', description: 'Enter folder name you want to delete')
     }
 
+    stages {
         stage('run_shell_script') {
             steps {
                 script {
@@ -21,4 +22,5 @@ pipeline {
             }
         }
     }
+}
 
