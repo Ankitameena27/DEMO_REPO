@@ -7,8 +7,8 @@ if [ $# -eq 0 ]; then
 fi
 
 # Set your Git username and token
-git_username="your_username"
-git_token="your_token"
+git_username="{$CREDENTIALS_USR}"
+git_token="{$CREDENTIALS_PSW}"
 
 # Take the first argument as folder name
 folder_name="$1"
@@ -21,7 +21,7 @@ git commit -m "Deleted folder $folder_path"
 
 # Step 2: Configure Git to use username and token for authentication
 git config credential.helper store
-echo "https://$git_username:$git_token@github.com" | git credential approve
+echo "https://{$CREDENTIALS_USR}:{$CREDENTIALS_PSW}@github.com" | git credential approve
 
 # Step 3: Create a new branch
 new_branch_name="feature/delete-$folder_name"
