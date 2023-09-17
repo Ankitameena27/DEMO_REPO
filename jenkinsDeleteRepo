@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     // Give execute permissions to the script
-                    sh 'chmod +x script_delete_git_folder'
+                    sh 'chmod +x script_delete_git_folder.sh'
                     
                     // Execute the script
                     sh "./script_delete_git_folder.sh ${params.FOLDER_NAME}" 
