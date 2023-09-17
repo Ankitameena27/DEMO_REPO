@@ -4,17 +4,12 @@
 if [ $# -eq 0 ]; then
     echo "Usage: $0 <folder_name>"
     exit 1
-fi
 
-# Check if authentication variables are set
-if [ -z "$GIT_USERNAME" ] || [ -z "$GIT_TOKEN" ]; then
-    echo "Error: Git username and token not set. Please set GIT_USERNAME and GIT_TOKEN environment variables."
-    exit 1
 fi
 
 # Log in to the Git repository
-git config --global user.email "$GIT_USERNAME"
-git config --global user.name "$GIT_USERNAME"
+git config --global user.email "{$CREDENTIALS_USR}"
+git config --global user.name "{$CREDENTIALS_PSW}"
 git config --global credential.helper 'cache --timeout=3600'
 echo -n "x-access-token:$GIT_TOKEN" | base64 -w0 | git credential-store store
 
