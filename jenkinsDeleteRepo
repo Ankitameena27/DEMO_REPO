@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     // Add your shell script commands here
-                    sh 
+                    sh 'chmod +x print_user_name.sh' 
                 }
             }
         }
