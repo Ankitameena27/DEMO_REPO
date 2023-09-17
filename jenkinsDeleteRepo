@@ -26,7 +26,7 @@ pipeline {
                     sh 'chmod +x script_delete_git_folder'
                     
                     // Execute the script
-                    sh "./script_delete_git_folder ${params.FOLDER_NAME}" 
+                    sh "./script_delete_git_folder.sh ${params.FOLDER_NAME}" 
                 }
             }
         }
