@@ -6,17 +6,9 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-# Check if authentication variables are set
-if [ -z "$GIT_USERNAME" ] || [ -z "$GIT_TOKEN" ]; then
-    echo "Error: Git username and token not set. Please set GIT_USERNAME and GIT_TOKEN environment variables."
-    exit 1
-fi
-
-# Log in to the Git repository
-git config --global user.email "$GIT_USERNAME"
-git config --global user.name "$GIT_USERNAME"
-git config --global credential.helper 'cache --timeout=3600'
-echo -n "x-access-token:$GIT_TOKEN" | base64 -w0 | git credential-store store
+# Set your Git username and token
+git_username="your_username"
+git_token="your_token"
 
 # Take the first argument as folder name
 folder_name="$1"
@@ -27,8 +19,21 @@ rm -rf "$folder_path"
 git add .
 git commit -m "Deleted folder $folder_path"
 
-# ... Rest of the script
+# Step 2: Configure Git to use username and token for authentication
+git config credential.helper store
+echo "https://$git_username:$git_token@github.com" | git credential approve
 
+# Step 3: Create a new branch
+new_branch_name="feature/delete-$folder_name"
+git checkout -b "$new_branch_name"
 
-# Step 5: Open a pull request
+# Step 4: Commit changes
+git add .
+git commit -m "Created branch and deleted folder"
+
+# Step 5: Push the new branch to the remote repository
+git push -u origin "$new_branch_name"
+
+# Step 6: Open a pull request
 # Note: You might need to do this manually via your Git hosting platform (e.g., GitHub, GitLab, etc.)
+
