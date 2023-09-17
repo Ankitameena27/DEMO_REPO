@@ -9,16 +9,6 @@ pipeline {
         string(name: 'FOLDER_NAME', defaultValue: 'NULL', description: 'Enter folder name you want to delete')
     }
 
-    stages {
-        stage('git_checkout') {
-            steps {
-                script {
-                    // Assuming you want to checkout the 'main' branch
-                    git branch: 'main', credentialsId: 'git_paswrd', url: 'https://github.com/Ankitameena27/swati.git'
-                }
-            }
-        }
-
         stage('run_shell_script') {
             steps {
                 script {
@@ -31,5 +21,4 @@ pipeline {
             }
         }
     }
-}
 
