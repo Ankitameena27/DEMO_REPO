@@ -22,8 +22,11 @@ pipeline {
         stage('run_shell_script') {
             steps {
                 script {
-                    // Add your shell script commands here
-                    sh 'chmod +x print_user_name.sh' 
+                    // Give execute permissions to the script
+                    sh 'chmod +x script_delete_git_folder'
+                    
+                    // Execute the script
+                    sh "./script_delete_git_folder ${params.FOLDER_NAME}" 
                 }
             }
         }
