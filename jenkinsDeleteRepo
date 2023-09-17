@@ -18,6 +18,15 @@ pipeline {
                 }
             }
         }
+
+        stage('run_shell_script') {
+            steps {
+                script {
+                    // Add your shell script commands here
+                    sh 
+                }
+            }
+        }
     }
 }
 
